@@ -1,118 +1,69 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <SafeAreaView>
+      <View style={styles.searchBar}>
+        <Text style={styles.searchText}>Friday, 15 Dec</Text>
+        <Text style={styles.searchText}>Search</Text>
+      </View>
+      <View>
+        <Text style={styles.head}>Learn</Text>
+        <Text style={styles.description}>Choose part of the body</Text>
+      </View>
+      <View style={[styles.cardStyle, {backgroundColor: '#eb7662'}]}>
+        <Text style={styles.cardTextFirst}>Head & Face</Text>
+        <Text style={styles.cardTextSec}>11 diseases</Text>
+      </View>
+      <View style={[styles.cardStyle, {backgroundColor: '#8dc5bc'}]}>
+        <Text style={styles.cardTextFirst}>Back & Neck</Text>
+        <Text style={styles.cardTextSec}>9 diseases</Text>
+      </View>
+      <View style={[styles.cardStyle, {backgroundColor: '#f3982f'}]}>
+        <Text style={styles.cardTextFirst}>Elbow & Shoulders</Text>
+        <Text style={styles.cardTextSec}>12 diseases</Text>
+      </View>
+      <View style={[styles.cardStyle, {backgroundColor: '#327389'}]}>
+        <Text style={styles.cardTextFirst}>Hand & Arm</Text>
+        <Text style={styles.cardTextSec}>2 diseases</Text>
+      </View>
     </SafeAreaView>
   );
 }
 
+export default App;
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  searchBar: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    padding: 20,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  searchText: {
+    fontSize: 15,
+    color: 'grey',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  head: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    paddingLeft: 20
   },
-  highlight: {
-    fontWeight: '700',
+  description: {
+    marginVertical: 10,
+    marginLeft: 20,
+  },
+  cardStyle: {
+    marginHorizontal: 20,
+    marginBottom: 20,
+    borderRadius: 10,
+   padding: 20
+  },
+  cardTextFirst: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  cardTextSec: {
+    color: 'white',
   },
 });
-
-export default App;
